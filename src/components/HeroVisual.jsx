@@ -243,7 +243,7 @@ function AnalyticsCore3D() {
 
 export default function HeroVisual() {
   return (
-    <div className="relative w-full aspect-square max-w-[540px] mx-auto flex items-center justify-center">
+    <div className="relative w-full aspect-square max-w-[340px] sm:max-w-[460px] lg:max-w-[540px] mx-auto flex items-center justify-center my-4 sm:my-0">
       {/* Background Radial Glow */}
       <div className="absolute inset-0 bg-gradient-to-tr from-purple-600/30 via-indigo-600/20 to-blue-500/30 rounded-full blur-3xl animate-pulse-glow" />
 
@@ -267,52 +267,52 @@ export default function HeroVisual() {
 
       {/* 1. UPPER-LEFT PANEL: PYTHON (Data Processing) */}
       <div
-        className="absolute -top-2 left-0 sm:-left-4 z-20 glass-panel px-4 py-2.5 rounded-2xl border border-purple-500/40 shadow-xl shadow-purple-950/40 backdrop-blur-xl flex items-center gap-3 animate-float"
+        className="absolute top-0 left-0 sm:-left-4 z-20 glass-panel px-3 py-1.5 sm:px-4 sm:py-2.5 rounded-2xl border border-purple-500/40 shadow-xl shadow-purple-950/40 backdrop-blur-xl flex items-center gap-2 sm:gap-3 animate-float"
         style={{ animationDelay: '0s' }}
       >
-        <div className="p-2 rounded-xl bg-purple-950/80 border border-purple-700/50 text-purple-300">
-          <Code2 className="w-4 h-4" />
+        <div className="p-1.5 sm:p-2 rounded-xl bg-purple-950/80 border border-purple-700/50 text-purple-300">
+          <Code2 className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
         </div>
         <div className="flex flex-col text-left">
-          <div className="flex items-center gap-1.5">
-            <span className="text-xs font-bold text-white tracking-wider font-mono">PYTHON</span>
+          <div className="flex items-center gap-1">
+            <span className="text-[11px] sm:text-xs font-bold text-white tracking-wider font-mono">PYTHON</span>
             <span className="w-1.5 h-1.5 rounded-full bg-purple-400 animate-ping" />
           </div>
-          <span className="text-[10px] text-slate-400 font-mono">Data Processing & EDA</span>
+          <span className="text-[9px] sm:text-[10px] text-slate-400 font-mono">Data Processing</span>
         </div>
       </div>
 
       {/* 2. LOWER-RIGHT PANEL: MYSQL (SQL Analytics) */}
       <div
-        className="absolute bottom-4 -right-2 sm:-right-4 z-20 glass-panel px-4 py-2.5 rounded-2xl border border-cyan-500/40 shadow-xl shadow-cyan-950/40 backdrop-blur-xl flex items-center gap-3 animate-float"
+        className="absolute bottom-2 left-0 sm:bottom-4 sm:left-auto sm:-right-4 z-20 glass-panel px-3 py-1.5 sm:px-4 sm:py-2.5 rounded-2xl border border-cyan-500/40 shadow-xl shadow-cyan-950/40 backdrop-blur-xl flex items-center gap-2 sm:gap-3 animate-float"
         style={{ animationDelay: '1.2s' }}
       >
-        <div className="p-2 rounded-xl bg-cyan-950/80 border border-cyan-700/50 text-cyan-300">
-          <Database className="w-4 h-4" />
+        <div className="p-1.5 sm:p-2 rounded-xl bg-cyan-950/80 border border-cyan-700/50 text-cyan-300">
+          <Database className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
         </div>
         <div className="flex flex-col text-left">
-          <div className="flex items-center gap-1.5">
-            <span className="text-xs font-bold text-white tracking-wider font-mono">MYSQL</span>
+          <div className="flex items-center gap-1">
+            <span className="text-[11px] sm:text-xs font-bold text-white tracking-wider font-mono">MYSQL</span>
             <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping" />
           </div>
-          <span className="text-[10px] text-slate-400 font-mono">SQL Analytics & Queries</span>
+          <span className="text-[9px] sm:text-[10px] text-slate-400 font-mono">SQL Analytics</span>
         </div>
       </div>
 
       {/* 3. UPPER-RIGHT PANEL: POWER BI (Visualization) */}
       <div
-        className="absolute top-16 -right-4 sm:-right-6 z-20 glass-panel px-4 py-2.5 rounded-2xl border border-amber-500/40 shadow-xl shadow-amber-950/40 backdrop-blur-xl flex items-center gap-3 animate-float"
+        className="absolute top-10 right-0 sm:top-16 sm:-right-6 z-20 glass-panel px-3 py-1.5 sm:px-4 sm:py-2.5 rounded-2xl border border-amber-500/40 shadow-xl shadow-amber-950/40 backdrop-blur-xl flex items-center gap-2 sm:gap-3 animate-float"
         style={{ animationDelay: '2.4s' }}
       >
-        <div className="p-2 rounded-xl bg-amber-950/80 border border-amber-700/50 text-amber-400">
-          <BarChart3 className="w-4 h-4" />
+        <div className="p-1.5 sm:p-2 rounded-xl bg-amber-950/80 border border-amber-700/50 text-amber-400">
+          <BarChart3 className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
         </div>
         <div className="flex flex-col text-left">
-          <div className="flex items-center gap-1.5">
-            <span className="text-xs font-bold text-white tracking-wider font-mono">POWER BI</span>
+          <div className="flex items-center gap-1">
+            <span className="text-[11px] sm:text-xs font-bold text-white tracking-wider font-mono">POWER BI</span>
             <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-ping" />
           </div>
-          <span className="text-[10px] text-slate-400 font-mono">Dashboards & Viz</span>
+          <span className="text-[9px] sm:text-[10px] text-slate-400 font-mono">Dashboards & Viz</span>
         </div>
       </div>
     </div>

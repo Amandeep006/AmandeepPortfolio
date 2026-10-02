@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import { Download, ArrowRight, Sparkles } from 'lucide-react';
 import { profileData } from '../data/profile';
 import SectionHeading from './SectionHeading';
-import AnalyticsWorkflow from './AnalyticsWorkflow';
 
 export default function About() {
   return (
@@ -90,11 +89,6 @@ export default function About() {
               <div className="text-xs text-slate-400 mt-2">Vidya College of Engineering (AKTU)</div>
             </div>
           </motion.div>
-        </div>
-
-        {/* 3D Folding Deck Analytics Workflow Architecture */}
-        <div className="mt-20">
-          <AnalyticsWorkflow />
         </div>
       </div>
     </section>

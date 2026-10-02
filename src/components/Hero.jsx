@@ -85,44 +85,35 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="flex flex-wrap items-center gap-4 w-full sm:w-auto"
+              className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3.5 w-full sm:w-auto"
             >
               <button
                 onClick={() => handleScrollTo('projects')}
-                className="group relative inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-full text-sm font-bold text-white bg-gradient-to-r from-purple-600 via-purple-500 to-blue-600 hover:from-purple-500 hover:to-blue-500 transition-all duration-300 shadow-xl shadow-purple-900/40 hover:shadow-purple-600/50 hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
+                className="group relative inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-full text-sm font-bold text-white bg-gradient-to-r from-purple-600 via-purple-500 to-blue-600 hover:from-purple-500 hover:to-blue-500 transition-all duration-300 shadow-xl shadow-purple-900/40 hover:shadow-purple-600/50 hover:-translate-y-0.5 active:translate-y-0 cursor-pointer w-full sm:w-auto"
               >
                 <span>View My Work</span>
                 <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
               </button>
 
-              <a
-                // href={profileData.resumeUrl}
-                // download="Amandeep_Saini_Data_Analyst_Resume.pdf"
-                href="/resume.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full text-sm font-semibold text-slate-200 bg-slate-900/80 hover:bg-slate-800 border border-slate-700/80 hover:border-purple-500/50 transition-all duration-300 hover:-translate-y-0.5 backdrop-blur-md"
-              >
-                <Download className="w-4 h-4 text-purple-400" />
-                <span>View Resume</span>
-              </a>
-              {/* <div className="resume-actions">
+              <div className="flex items-center gap-3.5 w-full sm:w-auto">
                 <a
                   href="/resume.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3.5 rounded-full text-sm font-semibold text-slate-200 bg-slate-900/80 hover:bg-slate-800 border border-slate-700/80 hover:border-purple-500/50 transition-all duration-300 hover:-translate-y-0.5 backdrop-blur-md"
                 >
-                  View Resume
+                  <Download className="w-4 h-4 text-purple-400" />
+                  <span>View Resume</span>
                 </a>
-              </div> */}
 
-              <button
-                onClick={() => handleScrollTo('contact')}
-                className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-full text-sm font-semibold text-purple-300 hover:text-white bg-purple-950/40 hover:bg-purple-900/40 border border-purple-800/50 transition-all duration-300 cursor-pointer backdrop-blur-md"
-              >
-                <Mail className="w-4 h-4" />
-                <span>Let's Connect</span>
-              </button>
+                <button
+                  onClick={() => handleScrollTo('contact')}
+                  className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-full text-sm font-semibold text-purple-300 hover:text-white bg-purple-950/40 hover:bg-purple-900/40 border border-purple-800/50 transition-all duration-300 cursor-pointer backdrop-blur-md"
+                >
+                  <Mail className="w-4 h-4" />
+                  <span>Let's Connect</span>
+                </button>
+              </div>
             </motion.div>
 
             {/* Quick Tech Highlights Badge Strip */}
@@ -130,19 +121,19 @@ export default function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.5 }}
-              className="mt-10 pt-6 border-t border-slate-800/80 flex flex-wrap items-center gap-6 text-xs text-slate-400"
+              className="mt-8 pt-6 border-t border-slate-800/80 grid grid-cols-2 sm:flex sm:flex-wrap items-center gap-3 sm:gap-6 text-xs text-slate-400 w-full"
             >
               <div className="flex items-center gap-2">
-                <Code2 className="w-4 h-4 text-purple-400" />
-                <span>Python & Pandas</span>
+                <Code2 className="w-4 h-4 text-purple-400 flex-shrink-0" />
+                <span className="truncate">Python & Pandas</span>
               </div>
               <div className="flex items-center gap-2">
-                <Database className="w-4 h-4 text-blue-400" />
-                <span>SQL & MySQL</span>
+                <Database className="w-4 h-4 text-blue-400 flex-shrink-0" />
+                <span className="truncate">SQL & MySQL</span>
               </div>
-              <div className="flex items-center gap-2">
-                <FileSpreadsheet className="w-4 h-4 text-emerald-400" />
-                <span>Power BI & Excel</span>
+              <div className="flex items-center gap-2 col-span-2 sm:col-span-1">
+                <FileSpreadsheet className="w-4 h-4 text-emerald-400 flex-shrink-0" />
+                <span className="truncate">Power BI & Excel</span>
               </div>
             </motion.div>
           </div>
