@@ -6,7 +6,7 @@ import SectionHeading from './SectionHeading';
 
 export default function About() {
   return (
-    <section id="about" className="py-24 relative bg-[#050816]">
+    <section id="about" className="py-24 relative bg-transparent">
       {/* Background glow accent */}
       <div className="absolute top-1/2 left-0 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl pointer-events-none" />
 

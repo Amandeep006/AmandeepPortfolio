@@ -6,7 +6,7 @@ import { GraduationCap, Award, Calendar, MapPin, CheckCircle2 } from 'lucide-rea
 
 export default function Education() {
   return (
-    <section className="py-20 relative bg-[#050816]">
+    <section className="py-20 relative bg-transparent">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           badge="ACADEMICS"

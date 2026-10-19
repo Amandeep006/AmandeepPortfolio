@@ -6,7 +6,7 @@ import { BookOpen, Calendar, Clock, ArrowUpRight } from 'lucide-react';
 
 export default function Blog() {
   return (
-    <section className="py-24 relative bg-[#050816]">
+    <section className="py-24 relative bg-transparent">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           badge="KNOWLEDGE SHARING"

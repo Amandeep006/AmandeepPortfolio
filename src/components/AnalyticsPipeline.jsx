@@ -120,7 +120,7 @@ export default function AnalyticsPipeline() {
     <section
       ref={sectionRef}
       id="workflow"
-      className="py-24 relative bg-[#050816] overflow-hidden select-none"
+      className="py-24 relative bg-transparent overflow-hidden select-none"
     >
       {/* Background Radial Atmosphere */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[500px] bg-gradient-to-r from-cyan-600/10 via-purple-600/15 to-pink-600/10 rounded-full blur-[140px] pointer-events-none" />

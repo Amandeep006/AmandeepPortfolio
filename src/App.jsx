@@ -15,6 +15,7 @@ import Blog from './components/Blog';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import BookSectionTransition from './components/BookSectionTransition';
+import MiddleVideoBackground from './components/MiddleVideoBackground';
 
 export default function App() {
   return (
@@ -27,46 +28,56 @@ export default function App() {
 
       {/* Main Vertically Scrolling Portfolio Content */}
       <main id="main-content">
+        {/* 1. HERO SECTION — EXISTING DESIGN, NO VIDEO */}
         <Hero />
         
-        <BookSectionTransition id="about-section">
-          <About />
-          <Stats />
-        </BookSectionTransition>
+        {/* 2. MAIN CONTENT WRAPPER — SECTIONS BETWEEN HERO AND FOOTER WITH BACKGROUND VIDEO */}
+        <div className="relative z-10">
+          {/* Background Video & Dark Overlay Layer */}
+          <MiddleVideoBackground />
 
-        <BookSectionTransition id="skills-section">
-          <Skills />
-        </BookSectionTransition>
+          {/* Existing Sections / Content */}
+          <div className="relative z-10">
+            <BookSectionTransition id="about-section">
+              <About />
+              <Stats />
+            </BookSectionTransition>
 
-        <BookSectionTransition id="workflow-section">
-          <AnalyticsPipeline />
-        </BookSectionTransition>
+            <BookSectionTransition id="skills-section">
+              <Skills />
+            </BookSectionTransition>
 
-        <BookSectionTransition id="projects-section">
-          <Projects />
-        </BookSectionTransition>
+            <BookSectionTransition id="workflow-section">
+              <AnalyticsPipeline />
+            </BookSectionTransition>
 
-        <BookSectionTransition id="experience-section">
-          <Experience />
-          <Education />
-        </BookSectionTransition>
+            <BookSectionTransition id="projects-section">
+              <Projects />
+            </BookSectionTransition>
 
-        <BookSectionTransition id="services-section">
-          <Services />
-        </BookSectionTransition>
+            <BookSectionTransition id="experience-section">
+              <Experience />
+              <Education />
+            </BookSectionTransition>
 
-        <BookSectionTransition id="github-section">
-          <GithubSection />
-          <Blog />
-        </BookSectionTransition>
+            <BookSectionTransition id="services-section">
+              <Services />
+            </BookSectionTransition>
 
-        <BookSectionTransition id="contact-section">
-          <Contact />
-        </BookSectionTransition>
+            <BookSectionTransition id="github-section">
+              <GithubSection />
+              <Blog />
+            </BookSectionTransition>
+
+            <BookSectionTransition id="contact-section">
+              <Contact />
+            </BookSectionTransition>
+          </div>
+        </div>
+
+        {/* 3. FOOTER SECTION — EXISTING DESIGN, NO VIDEO */}
+        <Footer />
       </main>
-
-      {/* Footer */}
-      <Footer />
     </div>
   );
 }

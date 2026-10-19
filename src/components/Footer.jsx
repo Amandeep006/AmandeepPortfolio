@@ -18,7 +18,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="py-12 bg-[#050816] border-t border-slate-800/80 text-slate-400 text-xs relative">
+    <footer className="py-12 bg-[#050816] border-t border-slate-800/80 text-slate-400 text-xs relative z-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8 pb-8 border-b border-slate-800/80">
           

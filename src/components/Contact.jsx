@@ -1,3 +1,4 @@
+import emailjs from '@emailjs/browser';
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import confetti from 'canvas-confetti';
@@ -17,6 +18,7 @@ export default function Contact() {
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null); // 'success' | 'error'
+  const [serverError, setServerError] = useState('');
 
   const validateForm = () => {
     const newErrors = {};
@@ -39,35 +41,86 @@ export default function Contact() {
     }
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const validationErrors = validateForm();
-    if (Object.keys(validationErrors).length > 0) {
-      setErrors(validationErrors);
-      return;
+ const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  const validationErrors = validateForm();
+
+  if (Object.keys(validationErrors).length > 0) {
+    setErrors(validationErrors);
+    return;
+  }
+
+  setIsSubmitting(true);
+  setSubmitStatus(null);
+  setServerError('');
+
+  try {
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const contactTemplateId = import.meta.env.VITE_EMAILJS_CONTACT_TEMPLATE_ID;
+    const replyTemplateId = import.meta.env.VITE_EMAILJS_REPLY_TEMPLATE_ID;
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+    if (!serviceId || !contactTemplateId || !replyTemplateId || !publicKey) {
+      throw new Error(
+        'EmailJS configuration is missing. Please check your .env file.'
+      );
     }
 
-    setIsSubmitting(true);
-    setSubmitStatus(null);
+    // Variables for your Contact Us template
+    const templateParams = {
+      user_name: formData.name,
+      user_email: formData.email,
+      subject: formData.subject,
+      message: formData.message,
+    };
 
-    // Simulate sending message
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setSubmitStatus('success');
+    // 1. Send the message to your email
+    await emailjs.send(
+      serviceId,
+      contactTemplateId,
+      templateParams,
+      { publicKey }
+    );
 
-      // Trigger Confetti Celebration Effect
-      confetti({
-        particleCount: 80,
-        spread: 70,
-        origin: { y: 0.6 }
-      });
+    // 2. Send confirmation email to the visitor
+    await emailjs.send(
+      serviceId,
+      replyTemplateId,
+      templateParams,
+      { publicKey }
+    );
 
-      setFormData({ name: '', email: '', subject: '', message: '' });
-    }, 1000);
-  };
+    setSubmitStatus('success');
+
+    // Confetti celebration
+    confetti({
+      particleCount: 80,
+      spread: 70,
+      origin: { y: 0.6 },
+    });
+
+    setFormData({
+      name: '',
+      email: '',
+      subject: '',
+      message: '',
+    });
+  } catch (err) {
+    console.error('EmailJS error:', err);
+
+    setSubmitStatus('error');
+
+    setServerError(
+      'Sorry, your message could not be sent. Please try again or contact me directly by email.'
+    );
+  } finally {
+    setIsSubmitting(false);
+  }
+};
 
   return (
-    <section id="contact" className="py-24 relative bg-[#080D1C] border-t border-slate-800/80">
+    <section id="contact" className="py-24 relative bg-transparent border-t border-slate-800/80">
       {/* Background glow */}
       <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl pointer-events-none" />
 
@@ -157,6 +210,17 @@ export default function Contact() {
                 >
                   <CheckCircle2 className="w-5 h-5 text-emerald-400 flex-shrink-0" />
                   <span>Thank you! Your message has been sent successfully. I will get back to you shortly.</span>
+                </motion.div>
+              )}
+
+              {submitStatus === 'error' && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="mb-6 p-4 rounded-2xl bg-red-950/80 border border-red-500/50 text-red-300 text-xs sm:text-sm flex items-center gap-3"
+                >
+                  <AlertCircle className="w-5 h-5 text-red-400 flex-shrink-0" />
+                  <span>{serverError}</span>
                 </motion.div>
               )}
 
@@ -255,10 +319,13 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full py-4 rounded-xl text-sm font-bold text-white bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 transition-all duration-300 shadow-xl shadow-purple-900/40 flex items-center justify-center gap-2"
+                  className="w-full py-4 rounded-xl text-sm font-bold text-white bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 transition-all duration-300 shadow-xl shadow-purple-900/40 flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? (
-                    <span>Sending Message...</span>
+                    <>
+                      <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                      <span>Sending...</span>
+                    </>
                   ) : (
                     <>
                       <span>Send Message</span>

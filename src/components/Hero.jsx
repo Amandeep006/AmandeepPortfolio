@@ -15,7 +15,7 @@ export default function Hero() {
   };
 
   return (
-    <section id="home" className="relative min-h-screen pt-28 pb-16 flex items-center justify-center bg-[#050816] overflow-hidden">
+    <section id="home" className="relative z-20 min-h-screen pt-28 pb-16 flex items-center justify-center bg-[#050816] overflow-hidden">
       {/* ============================================================ */}
       {/* 1. NATIVE FUTURISTIC HERO BACKGROUND CANVAS LAYER (z-1)       */}
       {/* ============================================================ */}

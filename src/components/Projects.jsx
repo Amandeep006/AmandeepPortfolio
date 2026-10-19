@@ -23,7 +23,7 @@ export default function Projects() {
     : projectsData.filter((p) => p.category.includes(activeCategory));
 
   return (
-    <section id="projects" className="py-24 relative bg-[#050816]">
+    <section id="projects" className="py-24 relative bg-transparent">
       {/* Glow Backdrop */}
       <div className="absolute top-1/4 left-1/3 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl pointer-events-none" />
 

@@ -37,7 +37,7 @@ export default function Skills() {
   const activeSkillInfo = hoveredSkill || selectedSkill;
 
   return (
-    <section id="skills" className="py-24 relative bg-[#050816] overflow-hidden">
+    <section id="skills" className="py-24 relative bg-transparent overflow-hidden">
       {/* Background Radial Glow */}
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[650px] h-[400px] bg-gradient-to-tr from-purple-600/15 via-indigo-600/10 to-cyan-500/10 rounded-full blur-[120px] pointer-events-none" />
 
